@@ -61,7 +61,6 @@ int main()
 					SendInput(1, &ip[0], sizeof(INPUT));
 					std::this_thread::sleep_for(std::chrono::milliseconds(delay / 2));
 					SendInput(1, &ip[1], sizeof(INPUT));
-					std::cout << "sprint\n";
 				}
 			}
 		}
