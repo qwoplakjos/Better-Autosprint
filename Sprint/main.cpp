@@ -56,13 +56,12 @@ int main()
 		{
 			CURSORINFO cursor = { sizeof(cursor) };
 			if (GetCursorInfo(&cursor)) {
-				if (cursor.flags == 0)
+				if (cursor.flags == 0 && GetAsyncKeyState(forward))
 				{
-					if (GetAsyncKeyState(forward)) {
-						SendInput(1, &ip[0], sizeof(INPUT));
-						std::this_thread::sleep_for(std::chrono::milliseconds(delay / 2));
-						SendInput(1, &ip[1], sizeof(INPUT));
-					}
+					SendInput(1, &ip[0], sizeof(INPUT));
+					std::this_thread::sleep_for(std::chrono::milliseconds(delay / 2));
+					SendInput(1, &ip[1], sizeof(INPUT));
+					std::cout << "sprint\n";
 				}
 			}
 		}
