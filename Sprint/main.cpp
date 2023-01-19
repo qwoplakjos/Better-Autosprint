@@ -11,7 +11,7 @@ int main()
 	FreeConsole();
 
 	char* buf = nullptr;
-	size_t sz = 0;
+	size_t sz = 0, pos = 0;
 	std::string path;
 
 	if (_dupenv_s(&buf, &sz, "LOCALAPPDATA") == 0 && buf != nullptr)
