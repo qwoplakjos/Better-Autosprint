@@ -32,12 +32,12 @@ int main()
 		while (getline(options, key))
 		{		
 			if (key.find("keyboard_type_0_key.forward") != std::string::npos) {
-				pos = key.find(":") + 1;
+				pos = key.find(del) + 1;
 				forward = stoi(key.substr(pos));
 			}
 
 			if (key.find("keyboard_type_0_key.sprint") != std::string::npos) {
-				pos = key.find(":") + 1;
+				pos = key.find(del) + 1;
 				sprint = stoi(key.substr(pos));
 			}
 		}
@@ -50,8 +50,7 @@ int main()
 	ip[1].type = INPUT_KEYBOARD; ip[1].ki.wVk = sprint;
 	ip[1].ki.dwFlags = KEYEVENTF_KEYUP;
 
-	while (true)
-	{
+	do {
 		if (GetForegroundWindow() == FindWindow(NULL, "Minecraft"))
 		{
 			CURSORINFO cursor = { sizeof(cursor) };
@@ -65,6 +64,7 @@ int main()
 			}
 		}
 		std::this_thread::sleep_for(std::chrono::milliseconds(delay));
-	}
+	} while (true);
+
 	return 0;
 }
