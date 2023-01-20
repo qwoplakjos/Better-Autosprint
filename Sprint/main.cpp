@@ -23,7 +23,7 @@ int main()
 	path += "\\Packages\\Microsoft.MinecraftUWP_8wekyb3d8bbwe";
 	path += "\\LocalState\\games\\com.mojang\\minecraftpe";
 
-	std::string del = ":", key, token;
+	std::string del = ":", key;
 	std::ifstream options(path + "\\options.txt");
 
 	int forward = 0, sprint = 0, delay = 250;
